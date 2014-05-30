@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>彭鹏 | Blogs</title>
+    <title>install ruby | Blogs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="John Doe">
+    <meta name="author" content="Siryang">
     
-    <meta name="description" content="晚上比我早睡两个小时，还和我一起起床毛巾放在盆子里，不把它放回架子上，非要嚷半天，还不放整天躺在床上看视频">
+    <meta name="description" content="Why install
+the version of yum install ruby is 1.8.5, but new version of ruby is 2.1.2
+Download
+Ruby 2.1.2:http://cache.ruby-lang.org/pub/ruby/2.1/rub">
     
     
     
@@ -69,14 +72,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/27/second/" title="彭鹏" itemprop="url">彭鹏</a>
+      <a href="/2014/05/30/programming/ruby/install-ruby/" title="install ruby" itemprop="url">install ruby</a>
   </h1>
   <p class="article-author">By
        
-		<a href="http://siryang.github.io/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
+		<a href="http://siryang.github.io/about" title="Siryang" target="_blank" itemprop="author">Siryang</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-27T00:09:49.000Z" itemprop="datePublished">发表于May 27 2014</time>
+    <time datetime="2014-05-30T02:35:49.000Z" itemprop="datePublished">发表于May 30 2014</time>
     
   </p>
 </header>
@@ -86,19 +89,38 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why_install"><span class="toc-number">1.</span> <span class="toc-text">Why install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Download"><span class="toc-number">2.</span> <span class="toc-text">Download</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install"><span class="toc-number">3.</span> <span class="toc-text">Install</span></a></li></ol>
 		
 		</div>
 		
-		<p>晚上比我早睡两个小时，还和我一起起床<br>毛巾放在盆子里，不把它放回架子上，非要嚷半天，还不放<br>整天躺在床上看视频</p>
+		<h2 id="Why_install">Why install</h2>
+<p>the version of <code>yum install ruby</code> is 1.8.5, but new version of ruby is 2.1.2</p>
+<h2 id="Download">Download</h2>
+<p><a href="http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz" title="Download Ruby 2.1.2" target="_blank"><code>Ruby 2.1.2</code></a>:<a href="http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz" target="_blank">http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz</a></p>
+<h2 id="Install">Install</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>tar -zxvf ruby-<span class="number">2.1</span><span class="number">.2</span><span class="preprocessor">.tar</span><span class="preprocessor">.gz</span>
+cd ruby-<span class="number">2.1</span><span class="number">.2</span>
+./configure --prefix=/usr/bin/ruby
+make & make install
+</pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Ruby/">Ruby</a>
+</div>
+
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/彭鹏/">彭鹏</a>
+  <span></span> <a href="/tags/ruby/">ruby</a>
   </div>
 
 
@@ -106,7 +128,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://siryang.github.io/2014/05/27/second/" data-title="彭鹏 | Blogs" data-tsina="null" class="share clearfix">
+  <div data-url="http://siryang.github.io/2014/05/30/programming/ruby/install-ruby/" data-title="install ruby | Blogs" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -117,9 +139,9 @@
  
 
 <div class="next">
-<a href="/2014/05/26/我的第一次/"  title="我的第一次">
+<a href="/2014/05/27/programming/ruby/meta-programming/"  title="meta-programming in ruby">
  <strong>下一篇：</strong><br/> 
- <span>我的第一次
+ <span>meta-programming in ruby
 </span>
 </a>
 </div>
@@ -133,7 +155,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why_install"><span class="toc-number">1.</span> <span class="toc-text">Why install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Download"><span class="toc-number">2.</span> <span class="toc-text">Download</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install"><span class="toc-number">3.</span> <span class="toc-text">Install</span></a></li></ol>
  
   </div>
 
@@ -142,15 +164,34 @@
 <aside class="clearfix">
 
   
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/Programing/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Programing/" title="Programing">Programing<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Ruby/" title="Ruby">Ruby<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Trivial/" title="Trivial">Trivial<sup>2</sup></a></li>
+		
+		</ul>
+</div>
+
 
   
 <div class="tagslist">
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/第一次/" title="第一次">第一次<sup>1</sup></a></li>
+			<li><a href="/tags/ruby/" title="ruby">ruby<sup>2</sup></a></li>
 		
-			<li><a href="/tags/彭鹏/" title="彭鹏">彭鹏<sup>1</sup></a></li>
+			<li><a href="/tags/meta-programming/" title="meta-programming">meta-programming<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
 		
 		</ul>
 </div>
@@ -195,7 +236,7 @@
 	</div>
 		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2014 
 		
-		<a href="http://siryang.github.io/about" target="_blank" title="John Doe">John Doe</a>
+		<a href="http://siryang.github.io/about" target="_blank" title="Siryang">Siryang</a>
 		
 		</p>
 </div>
