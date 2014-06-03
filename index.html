@@ -88,7 +88,14 @@ Ruby 2.1.2:http://cache.ruby-lang.org/pub/ru</p>
     <h1 itemprop="name">meta-programming in ruby</h1>
     
      
-           <p itemprop="description" >元编程最通俗的解释就是用代码生成代码静态元编程和动态元编程的区别是后者可以在程序在运行时生成代码</p>
+           <p itemprop="description" >元编程最通俗的解释就是用代码生成代码静态元编程和动态元编程的区别是后者可以在程序在运行时生成代码
+
+
+
+
+instance_eval
+instance_eval接收块作为参数，把调用对象置换成self来执行，所以@name=变成了self.@name=
+instance_eval</p>
         
     
     <time datetime="2014-05-27T00:09:49.000Z" itemprop="datePublished">May 27 2014</time>
@@ -145,14 +152,30 @@ using namespace </p>
 
   <section class="post" itemscope itemprop="blogPost">
   
-    <a href="/2014/05/26/web/hexo/" title="WEB" itemprop="url">
+    <a href="/2014/05/26/web/server/" title="WEB" itemprop="url">
   
     <h1 itemprop="name">WEB</h1>
     
      
            <p itemprop="description" >服务器
-云服务器
-虚拟主机</p>
+云主机
+虚拟主机
+域名服务
+
+fight4seat.com
+
+
+Apache
+
+
+Nginx, Lighttpd
+
+Tomcat
+
+Apache只支持静态页面，所以需要Tomcat支持jsp/servlet等
+
+Fast CGI
+Ruby on Rails</p>
         
     
     <time datetime="2014-05-26T12:02:52.000Z" itemprop="datePublished">May 26 2014</time>
