@@ -4,38 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hightlight | Blogs</title>
+    <title>Modern C++ Design(1) | Blogs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Siryang">
     
-    <meta name="description" content="test_coding 百度1
-2
-3
-4
-5
-#include &amp;lt;stdio.h&amp;gt;
-int main()
-{
-	return 0;
-}
-
-
-hello百度1
+    <meta name="description" content="特化与偏特化
+支持成员函数特例化，不支持成员函数偏特化
+特化与偏特化 1
 2
 3
 4
 5
 6
 7
-#include &amp;lt;iostream&amp;gt;
-using namespace std;
-int main()
-{
-	cout &amp;lt;&amp;lt; &quot;hello&quot; &amp;lt;&amp;lt; endl;
-	return 0;
-}
-12312321">
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+    template &amp;lt;class T&amp;gt; 
+    class Widget">
     
     
     
@@ -95,14 +98,14 @@ int main()
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/26/programming/code-hightlight/" title="Hightlight" itemprop="url">Hightlight</a>
+      <a href="/2014/06/04/programming/cpp/meta-programming/" title="Modern C++ Design(1)" itemprop="url">Modern C++ Design(1)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://siryang.github.io/about" title="Siryang" target="_blank" itemprop="author">Siryang</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-26T12:02:52.000Z" itemprop="datePublished">发表于May 26 2014</time>
+    <time datetime="2014-06-04T07:29:59.000Z" itemprop="datePublished">发表于Jun 4 2014</time>
     
   </p>
 </header>
@@ -112,53 +115,183 @@ int main()
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#特化与偏特化"><span class="toc-number">1.</span> <span class="toc-text">特化与偏特化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Policies和Policy_Classes"><span class="toc-number">2.</span> <span class="toc-text">Policies和Policy Classes</span></a></li></ol>
 		
 		</div>
 		
-		<figure class="highlight cpp"><figcaption><span>test_coding </span><a href="http://www.baidu.com" target="_blank">百度</a></figcaption><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
-<span class="keyword">int</span> main()
-{
-	<span class="keyword">return</span> <span class="number">0</span>;
-}
-</pre></td></tr></table></figure>
-
-<p><figure class="highlight cpp"><figcaption><span>hello</span><a href="http://www.baidu.com" target="_blank">百度</a></figcaption><table><tr><td class="gutter"><pre>1
+		<h3 id="特化与偏特化">特化与偏特化</h3>
+<p>支持<code>成员函数特例化</code>，不支持<code>成员函数偏特化</code></p>
+<figure class="highlight cpp"><figcaption><span>特化与偏特化 </span></figcaption><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;iostream&gt;</span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">int</span> main()
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="code"><pre>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; 
+    <span class="keyword">class</span> Widget
+    {
+        <span class="keyword">void</span> Fun() { .. generic implementation ... }
+    };
+
+    <span class="comment">// OK: specialization of a member function of Widget</span>
+    <span class="comment">// </span>
+    <span class="keyword">template</span> &lt;&gt; <span class="keyword">void</span> Widget&lt;<span class="keyword">char</span>&gt;::Fun() <span class="comment">// 譯註：原文少了 void</span>
+    {
+        ... specialized implementation ...
+    }
+
+    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keyword">class</span> U&gt; <span class="keyword">class</span> Gadget
+    {
+        <span class="keyword">void</span> Fun() { .. generic implementation ... }
+    };
+
+    <span class="comment">// Error! Cannot partially specialize a member class of Gadget</span>
+    <span class="comment">// 譯註 : 因為這是 member function 的 Explicit specialization 並無 partial</span>
+    <span class="comment">// specialization機制。注意這和class templates 不同! 參見 C++ Primer,16.9 節</span>
+    <span class="comment">// </span>
+    <span class="keyword">template</span> &lt;<span class="keyword">class</span> U&gt; <span class="keyword">void</span> Gadget&lt;<span class="keyword">char</span>，U&gt;::Fun()
+    {
+        ... specialized implementation ...
+    }
+</pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Policies和Policy_Classes">Policies和Policy Classes</h3>
+<p><code>OpNewCreator</code>和<code>MallocCreator</code>是策略类，<code>WidgetManager</code>可以选择使用何种策略</p>
+<figure class="highlight cpp"><figcaption><span>策略类 </span></figcaption><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="code"><pre><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<span class="keyword">struct</span> OpNewCreator
 {
-	<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello"</span> &lt;&lt; endl;
-	<span class="keyword">return</span> <span class="number">0</span>;
-}
-</pre></td></tr></table></figure><br><!-- more i hide this --><br>12312321<br><a id="more"></a><br>12312</p>
+    <span class="keyword">static</span> T* Create()
+    {
+        <span class="keyword">return</span> <span class="keyword">new</span> T;
+    }
+};
+
+<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<span class="keyword">struct</span> MallocCreator
+{
+    <span class="keyword">static</span> T* Create()
+    {
+        <span class="keyword">void</span>* buf = <span class="built_in">std</span>::<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(T));
+        <span class="keyword">if</span> (!buf) <span class="keyword">return</span> <span class="number">0</span>;
+        <span class="keyword">return</span> <span class="keyword">new</span>(buf) T;
+    }
+};
+
+<span class="comment">// OpNewCreator和MallocCreator（策略）称为CreationPolicy（策略集）</span>
+<span class="comment">// WidgetManager继承CreationPolicy</span>
+<span class="comment">// Library code</span>
+<span class="keyword">template</span> &lt;<span class="keyword">class</span> CreationPolicy&gt;
+<span class="keyword">class</span> WidgetManager : <span class="keyword">public</span> CreationPolicy
+{ ... };
+
+<span class="keyword">typedef</span> WidgetManager&lt; OpNewCreator&lt;Widget&gt; &gt; MyWidgetMgr;
+
+
+<span class="comment">// Library code</span>
+<span class="comment">// class Created是CreationPolicy的形式参数，所以可以忽略</span>
+<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="comment">/*Created*/</span>&gt; <span class="keyword">class</span> CreationPolicy&gt;
+<span class="keyword">class</span> WidgetManager : <span class="keyword">public</span> CreationPolicy&lt;Widget&gt;
+{ ... };
+
+
+<span class="keyword">typedef</span> WidgetManager&lt;OpNewCreator&gt; MyWidgetMgr;
+</pre></td></tr></table></figure>
+
+
+
+<blockquote>
+
+
+
+</blockquote>
+
+
+<hr>
+<figure class="highlight ruby"><figcaption><span>instance_eval </span></figcaption><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>
+</pre></td></tr></table></figure>
+
+<p>1.Created<Type><br>2.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Programing/">Programing</a>►<a class="article-category-link" href="/categories/Programing/Hexo/">Hexo</a>
+  <a class="article-category-link" href="/categories/CPP/">CPP</a>
 </div>
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/reading/">reading</a><a href="/tags/template/">template</a><a href="/tags/cpp/">cpp</a>
+  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://siryang.github.io/2014/05/26/programming/code-hightlight/" data-title="Hightlight | Blogs" data-tsina="null" class="share clearfix">
+  <div data-url="http://siryang.github.io/2014/06/04/programming/cpp/meta-programming/" data-title="Modern C++ Design(1) | Blogs" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -168,18 +301,18 @@ int main()
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/05/26/trivial/MyFirstTime/" title="历程">
+ <a href="/2014/06/09/programming/python/documents/" title="Python基础">
   <strong>上一篇：</strong><br/>
   <span>
-  历程</span>
+  Python基础</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/05/26/web/server/"  title="WEB">
+<a href="/2014/05/30/programming/ruby/install-ruby/"  title="Install Ruby">
  <strong>下一篇：</strong><br/> 
- <span>WEB
+ <span>Install Ruby
 </span>
 </a>
 </div>
@@ -193,7 +326,7 @@ int main()
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#特化与偏特化"><span class="toc-number">1.</span> <span class="toc-text">特化与偏特化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Policies和Policy_Classes"><span class="toc-number">2.</span> <span class="toc-text">Policies和Policy Classes</span></a></li></ol>
  
   </div>
 

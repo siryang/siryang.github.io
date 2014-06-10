@@ -4,38 +4,31 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hightlight | Blogs</title>
+    <title>Python基础 | Blogs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Siryang">
     
-    <meta name="description" content="test_coding 百度1
+    <meta name="description" content="Grammar
+
+for1
 2
 3
 4
 5
-#include &amp;lt;stdio.h&amp;gt;
-int main()
-{
-	return 0;
-}
+for w in words[1:-1]:
+     print w, len(w),
+myArray = range(2,5)
+
+myArray = [i for i in range(2,5)]
 
 
-hello百度1
-2
-3
-4
-5
-6
-7
-#include &amp;lt;iostream&amp;gt;
-using namespace std;
-int main()
-{
-	cout &amp;lt;&amp;lt; &quot;hello&quot; &amp;lt;&amp;lt; endl;
-	return 0;
-}
-12312321">
+
+
+Interface
+Basic
+
+raw_inp">
     
     
     
@@ -95,14 +88,14 @@ int main()
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/26/programming/code-hightlight/" title="Hightlight" itemprop="url">Hightlight</a>
+      <a href="/2014/06/09/programming/python/documents/" title="Python基础" itemprop="url">Python基础</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://siryang.github.io/about" title="Siryang" target="_blank" itemprop="author">Siryang</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-26T12:02:52.000Z" itemprop="datePublished">发表于May 26 2014</time>
+    <time datetime="2014-06-09T10:51:49.000Z" itemprop="datePublished">发表于Jun 9 2014</time>
     
   </p>
 </header>
@@ -112,53 +105,168 @@ int main()
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Grammar"><span class="toc-number">1.</span> <span class="toc-text">Grammar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface"><span class="toc-number">2.</span> <span class="toc-text">Interface</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">2.1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inheritance"><span class="toc-number">2.2.</span> <span class="toc-text">Inheritance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#muti-thread"><span class="toc-number">2.3.</span> <span class="toc-text">muti-thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#muti-processing"><span class="toc-number">2.4.</span> <span class="toc-text">muti-processing</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多进程"><span class="toc-number">2.4.1.</span> <span class="toc-text">多进程</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional_Programming_Tools"><span class="toc-number">3.</span> <span class="toc-text">Functional Programming Tools</span></a></li></ol>
 		
 		</div>
 		
-		<figure class="highlight cpp"><figcaption><span>test_coding </span><a href="http://www.baidu.com" target="_blank">百度</a></figcaption><table><tr><td class="gutter"><pre>1
+		<h2 id="Grammar">Grammar</h2>
+<ul>
+<li>for<figure class="highlight python"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
-</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;stdio.h&gt;</span>
-<span class="keyword">int</span> main()
-{
-	<span class="keyword">return</span> <span class="number">0</span>;
-}
+</pre></td><td class="code"><pre><span class="keyword">for</span> w <span class="keyword">in</span> words[<span class="number">1</span>:-<span class="number">1</span>]:
+     <span class="keyword">print</span> w, len(w),
+myArray = range(<span class="number">2</span>,<span class="number">5</span>)
+
+myArray = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,<span class="number">5</span>)]
+</pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="Interface">Interface</h2>
+<h3 id="Basic">Basic</h3>
+<ul>
+<li>raw_input</li>
+<li><p>DataStructure</p>
+<ul>
+<li><p>Array</p>
+<figure class="highlight PYTHON"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>enumerate
+</pre></td></tr></table></figure>
+</li>
+<li><p>Tuples</p>
+<figure class="highlight PYTHON"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>zip(list1, list2)
+</pre></td></tr></table></figure>
+</li>
+<li><p>Sequences</p>
+</li>
+<li>Sets</li>
+<li>Dictionaries</li>
+</ul>
+</li>
+</ul>
+<h3 id="Inheritance">Inheritance</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="class"><span class="keyword">class</span> <span class="title">Child</span><span class="params">(module.Parent)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, other)</span>:</span>
+        module.Parent(self)
 </pre></td></tr></table></figure>
 
-<p><figure class="highlight cpp"><figcaption><span>hello</span><a href="http://www.baidu.com" target="_blank">百度</a></figcaption><table><tr><td class="gutter"><pre>1
+<h3 id="muti-thread">muti-thread</h3>
+<blockquote>
+<p>CPython implementation detail: In CPython, due to the Global Interpreter Lock, only one thread can execute Python code at once (even though certain performance-oriented libraries might overcome this limitation). If you want your application to make better use of the computational resources of multi-core machines, you are advised to use multiprocessing. However, threading is still an appropriate model if you want to run multiple I/O-bound tasks simultaneously.<br>CPython实现详情：在CPython中，由于<code>GIL(Global Interpreter Lock)</code>的原因，同一时刻只有一个线程在执行。如果期望更好利用计算机的多核性能，建议使用<code>multiprocessing</code>,而多线程则更多应用于IO并发。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="code"><pre><span class="preprocessor">#include &lt;iostream&gt;</span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="keyword">int</span> main()
-{
-	<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello"</span> &lt;&lt; endl;
-	<span class="keyword">return</span> <span class="number">0</span>;
-}
-</pre></td></tr></table></figure><br><!-- more i hide this --><br>12312321<br><a id="more"></a><br>12312</p>
+8
+</pre></td><td class="code"><pre><span class="keyword">import</span> threading
+<span class="class"><span class="keyword">class</span> <span class="title">MyThread</span><span class="params">(threading.Thread)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span>
+        <span class="comment">#do task here</span>
+<span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span>
+    thread = MyThread()
+    thread.start()
+    thread.join()
+</pre></td></tr></table></figure>
+
+<h3 id="muti-processing">muti-processing</h3>
+<h4 id="多进程">多进程</h4>
+<ul>
+<li>通信</li>
+<li>同步</li>
+<li>运行方式<ul>
+<li>async:异步调用</li>
+<li>apply:</li>
+<li>map</li>
+<li>imap</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="keyword">import</span> multiprocessing
+
+<span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(num)</span>:</span>
+    <span class="string">"""thread worker function"""</span>
+    <span class="keyword">print</span> <span class="string">'Worker:'</span>, num
+    <span class="keyword">return</span>
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    jobs = []
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):
+        p = multiprocessing.Process(target=worker, args=(i,))
+        jobs.append(p)
+        p.start()
+</pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Functional_Programming_Tools">Functional Programming Tools</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>filter(function, list1, list2) 
+map(function, list1, list2)
+reduce(function, list)
+sum(function, list)
+
+[x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]
+[(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="keyword">for</span> y <span class="keyword">in</span> [<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>] <span class="keyword">if</span> x != y]
+</pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>a = [-<span class="number">1</span>, <span class="number">1</span>, <span class="number">66.25</span>, <span class="number">333</span>, <span class="number">333</span>, <span class="number">1234.5</span>]
+<span class="keyword">del</span> a[<span class="number">0</span>]
+</pre></td></tr></table></figure>
+
+
+<hr>
   
 	</div>
 		<footer class="article-footer clearfix">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Programing/">Programing</a>►<a class="article-category-link" href="/categories/Programing/Hexo/">Hexo</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/python/">python</a>
+  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://siryang.github.io/2014/05/26/programming/code-hightlight/" data-title="Hightlight | Blogs" data-tsina="null" class="share clearfix">
+  <div data-url="http://siryang.github.io/2014/06/09/programming/python/documents/" data-title="Python基础 | Blogs" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -168,18 +276,18 @@ int main()
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/05/26/trivial/MyFirstTime/" title="历程">
+ <a href="/2014/06/10/words/words_2014_6_10/" title="Words">
   <strong>上一篇：</strong><br/>
   <span>
-  历程</span>
+  Words</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/05/26/web/server/"  title="WEB">
+<a href="/2014/06/04/programming/cpp/meta-programming/"  title="Modern C++ Design(1)">
  <strong>下一篇：</strong><br/> 
- <span>WEB
+ <span>Modern C++ Design(1)
 </span>
 </a>
 </div>
@@ -193,7 +301,7 @@ int main()
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Grammar"><span class="toc-number">1.</span> <span class="toc-text">Grammar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface"><span class="toc-number">2.</span> <span class="toc-text">Interface</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">2.1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inheritance"><span class="toc-number">2.2.</span> <span class="toc-text">Inheritance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#muti-thread"><span class="toc-number">2.3.</span> <span class="toc-text">muti-thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#muti-processing"><span class="toc-number">2.4.</span> <span class="toc-text">muti-processing</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多进程"><span class="toc-number">2.4.1.</span> <span class="toc-text">多进程</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional_Programming_Tools"><span class="toc-number">3.</span> <span class="toc-text">Functional Programming Tools</span></a></li></ol>
  
   </div>
 
