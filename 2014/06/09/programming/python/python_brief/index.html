@@ -4,29 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>hexo format | Blogs</title>
+    <title>Python基础 | Blogs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Siryang">
     
-    <meta name="description" content="设置分类和搜索标签1
+    <meta name="description" content="Grammar
+
+for1
 2
 3
 4
-categories:
-- Tools
-tags:
-- hexo
+5
+6
+for w in words[1:-1]:
+     print w, len(w),
+myArray = range(2,5)
 
-
-MarkDown
-不错的协作工具
-*mahua:在线编辑markdown文档的编辑器 
-
-
-
-
-爱好篮球的亲们最近的季后赛有木有让你看的手痒马刺新(lao)秀(jiang)们的身体素质可真好啊羡慕">
+myArray = [(x,y) for x in [1,2] for y in [3,4]]
+# 组合：[(1,3),">
     
     
     
@@ -86,14 +82,14 @@ MarkDown
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/26/tools/hexo/" title="hexo format" itemprop="url">hexo format</a>
+      <a href="/2014/06/09/programming/python/python_brief/" title="Python基础" itemprop="url">Python基础</a>
   </h1>
   <p class="article-author">By
        
 		<a href="http://siryang.github.io/about" title="Siryang" target="_blank" itemprop="author">Siryang</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-26T12:02:52.000Z" itemprop="datePublished">发表于May 26 2014</time>
+    <time datetime="2014-06-09T10:51:49.000Z" itemprop="datePublished">发表于Jun 9 2014</time>
     
   </p>
 </header>
@@ -103,49 +99,174 @@ MarkDown
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MarkDown"><span class="toc-number">1.</span> <span class="toc-text">MarkDown</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不错的协作工具"><span class="toc-number">1.1.</span> <span class="toc-text">不错的协作工具</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Grammar"><span class="toc-number">1.</span> <span class="toc-text">Grammar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface"><span class="toc-number">2.</span> <span class="toc-text">Interface</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">2.1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String"><span class="toc-number">2.2.</span> <span class="toc-text">String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File"><span class="toc-number">2.3.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inheritance"><span class="toc-number">2.4.</span> <span class="toc-text">Inheritance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#muti-thread"><span class="toc-number">2.5.</span> <span class="toc-text">muti-thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#muti-processing"><span class="toc-number">2.6.</span> <span class="toc-text">muti-processing</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多进程"><span class="toc-number">2.6.1.</span> <span class="toc-text">多进程</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional_Programming_Tools"><span class="toc-number">3.</span> <span class="toc-text">Functional Programming Tools</span></a></li></ol>
 		
 		</div>
 		
-		<figure class="highlight hexo"><figcaption><span>设置分类和搜索标签</span></figcaption><table><tr><td class="gutter"><pre>1
+		<h2 id="Grammar">Grammar</h2>
+<ul>
+<li>for<figure class="highlight python"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>categories:
--<span class="ruby"> <span class="constant">Tools</span>
-</span>tags:
--<span class="ruby"> hexo</span>
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">for</span> w <span class="keyword">in</span> words[<span class="number">1</span>:-<span class="number">1</span>]:
+     <span class="keyword">print</span> w, len(w),
+myArray = range(<span class="number">2</span>,<span class="number">5</span>)
+
+myArray = [(x,y) <span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>] <span class="keyword">for</span> y <span class="keyword">in</span> [<span class="number">3</span>,<span class="number">4</span>]]
+<span class="comment"># 组合：[(1,3),(1,4),(2,3),(2,4)]</span>
+</pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="Interface">Interface</h2>
+<h3 id="Basic">Basic</h3>
+<ul>
+<li>raw_input</li>
+<li><p>DataStructure</p>
+<ul>
+<li><p>Array</p>
+<figure class="highlight PYTHON"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>enumerate
+</pre></td></tr></table></figure>
+</li>
+<li><p>Tuples</p>
+<figure class="highlight PYTHON"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>zip(list1, list2)
+</pre></td></tr></table></figure>
+</li>
+<li><p>Sequences</p>
+</li>
+<li>Sets</li>
+<li>Dictionaries</li>
+</ul>
+</li>
+</ul>
+<h3 id="String">String</h3>
+<h3 id="File">File</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>os.rename(path1, path2)
 </pre></td></tr></table></figure>
 
-<h1 id="MarkDown">MarkDown</h1>
-<h2 id="不错的协作工具">不错的协作工具</h2>
-<p>*<a href="http://mahua.jser.me/" target="_blank">mahua:在线编辑markdown文档的编辑器</a> </p>
-<img src="/images/image_test.jpg" class="[class names]" width="392" height="220" title="test images">
+<h3 id="Inheritance">Inheritance</h3>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="class"><span class="keyword">class</span> <span class="title">Child</span><span class="params">(module.Parent)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, other)</span>:</span>
+        module.Parent(self)
+</pre></td></tr></table></figure>
+
+<h3 id="muti-thread">muti-thread</h3>
+<blockquote>
+<p>CPython implementation detail: In CPython, due to the Global Interpreter Lock, only one thread can execute Python code at once (even though certain performance-oriented libraries might overcome this limitation). If you want your application to make better use of the computational resources of multi-core machines, you are advised to use multiprocessing. However, threading is still an appropriate model if you want to run multiple I/O-bound tasks simultaneously.<br>CPython实现详情：在CPython中，由于<code>GIL(Global Interpreter Lock)</code>的原因，同一时刻只有一个线程在执行。如果期望更好利用计算机的多核性能，建议使用<code>multiprocessing</code>,而多线程则更多应用于IO并发。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="keyword">import</span> threading
+<span class="class"><span class="keyword">class</span> <span class="title">MyThread</span><span class="params">(threading.Thread)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span>
+        <span class="comment">#do task here</span>
+<span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span>
+    thread = MyThread()
+    thread.start()
+    thread.join()
+</pre></td></tr></table></figure>
+
+<h3 id="muti-processing">muti-processing</h3>
+<h4 id="多进程">多进程</h4>
+<ul>
+<li>通信</li>
+<li>同步</li>
+<li>运行方式<ul>
+<li>async:异步调用</li>
+<li>apply:apply(function, args) == function(args)</li>
+<li>map: 同map</li>
+<li>imap: </li>
+</ul>
+</li>
+<li>经验<ul>
+<li>可以使用<code>multiprocessing.cpu_cpunt()</code>获取CPU个数，由此设置进程池拥有进程数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">import</span> multiprocessing
+
+<span class="function"><span class="keyword">def</span> <span class="title">worker</span><span class="params">(num)</span>:</span>
+    <span class="string">"""thread worker function"""</span>
+    <span class="keyword">print</span> <span class="string">'Worker:'</span>, num
+    <span class="keyword">return</span>
+
+<span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:
+    jobs = []
+    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):
+        p = multiprocessing.Process(target=worker, args=(i,))
+        jobs.append(p)
+        p.start()
+    p = multiprocessing.Pool(processes=multiprocessing.cpu_count())
+</pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Functional_Programming_Tools">Functional Programming Tools</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>filter(function, list1, list2) 
+map(function, list1, list2)
+reduce(function, list)
+sum(function, list)
+
+[x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]
+[(x, y) <span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="keyword">for</span> y <span class="keyword">in</span> [<span class="number">3</span>,<span class="number">1</span>,<span class="number">4</span>] <span class="keyword">if</span> x != y]
+</pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>a = [-<span class="number">1</span>, <span class="number">1</span>, <span class="number">66.25</span>, <span class="number">333</span>, <span class="number">333</span>, <span class="number">1234.5</span>]
+<span class="keyword">del</span> a[<span class="number">0</span>]
+</pre></td></tr></table></figure>
 
 
-
-<p>爱好篮球的亲们<br>最近的季后赛有木有让你看的手痒<br>马刺新(lao)秀(jiang)们的身体素质可真好啊<br>羡慕的话就一起锻炼身体吧</p>
-<p>篮球活动<br>活动地点：北京东城区安定门外大街168号地坛体育中心篮球馆（近地坛西门）<br>活动时间：2014年6月5日（下周三18:00之后)<br>乘车路线：</p>
-<p><img src="/images/mapbar_basketball.jpg" class="[class names]" width="790" height="484" title="test images"><br>群：210193978</p>
-<pre><code>    <span class="number">0</span>, <span class="number">0</span>,  <span class="number">0</span>,  <span class="number">0</span>, <span class="comment">//0-3</span>
-    <span class="number">3</span>,    <span class="number">3</span>, <span class="comment">// 4 - 5</span>
-    <span class="number">5</span>,  <span class="number">5</span>, <span class="comment">// 6 - 7</span>
-    <span class="number">7</span>,  <span class="number">7</span>,    <span class="number">7</span>, <span class="comment">// 8 - 10</span>
-    <span class="number">10</span>,    <span class="number">10</span>, <span class="comment">// 11 - 12</span>
-    <span class="number">12</span>, <span class="number">12</span> <span class="comment">// 13 - 14</span>
-</code></pre>  
+<hr>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/Tools/">Tools</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/hexo/">hexo</a>
+  <span></span> <a href="/tags/python/">python</a>
   </div>
 
 
@@ -153,7 +274,7 @@ MarkDown
 
 <div class="article-share" id="share">
 
-  <div data-url="http://siryang.github.io/2014/05/26/tools/hexo/" data-title="hexo format | Blogs" data-tsina="null" class="share clearfix">
+  <div data-url="http://siryang.github.io/2014/06/09/programming/python/python_brief/" data-title="Python基础 | Blogs" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -163,18 +284,18 @@ MarkDown
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/05/26/trivial/MyFirstTime/" title="历程">
+ <a href="/2014/06/10/words/words_2014_6_10/" title="Words">
   <strong>上一篇：</strong><br/>
   <span>
-  历程</span>
+  Words</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2014/05/26/hello-world/"  title="Hello World">
+<a href="/2014/06/09/programming/python/documents/"  title="Python基础">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>Python基础
 </span>
 </a>
 </div>
@@ -188,7 +309,7 @@ MarkDown
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MarkDown"><span class="toc-number">1.</span> <span class="toc-text">MarkDown</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不错的协作工具"><span class="toc-number">1.1.</span> <span class="toc-text">不错的协作工具</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Grammar"><span class="toc-number">1.</span> <span class="toc-text">Grammar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface"><span class="toc-number">2.</span> <span class="toc-text">Interface</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">2.1.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#String"><span class="toc-number">2.2.</span> <span class="toc-text">String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File"><span class="toc-number">2.3.</span> <span class="toc-text">File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inheritance"><span class="toc-number">2.4.</span> <span class="toc-text">Inheritance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#muti-thread"><span class="toc-number">2.5.</span> <span class="toc-text">muti-thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#muti-processing"><span class="toc-number">2.6.</span> <span class="toc-text">muti-processing</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#多进程"><span class="toc-number">2.6.1.</span> <span class="toc-text">多进程</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Functional_Programming_Tools"><span class="toc-number">3.</span> <span class="toc-text">Functional Programming Tools</span></a></li></ol>
  
   </div>
 
