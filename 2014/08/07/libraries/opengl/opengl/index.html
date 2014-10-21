@@ -9,16 +9,19 @@
     
     <meta name="author" content="Siryang">
     
-    <meta name="description" content="1
+    <meta name="description" content="title: OpenGL离屏渲染categories:
+
+OpenGL
+
+brief
+1
 2
 3
 4
 5
 6
 7
-A FBO (Framebuffer object) is a target where you can render images other than the default frame buffer or screen.
-
-A PBO (Pixel Buffer O">
+A FBO (Framebuffer object) is a target where you can render images other than the default fr">
     
     
     
@@ -95,11 +98,16 @@ A PBO (Pixel Buffer O">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#brief"><span class="toc-number">1.</span> <span class="toc-text">brief</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用OpenGL绘图到文件"><span class="toc-number">2.</span> <span class="toc-text">使用OpenGL绘图到文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GLX_PixelMap"><span class="toc-number">2.1.</span> <span class="toc-text">GLX PixelMap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PBuffer"><span class="toc-number">2.2.</span> <span class="toc-text">PBuffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Framebuffer_Object"><span class="toc-number">2.3.</span> <span class="toc-text">Framebuffer Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pixel_Buffer_Object"><span class="toc-number">2.4.</span> <span class="toc-text">Pixel Buffer Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比较"><span class="toc-number">2.5.</span> <span class="toc-text">比较</span></a></li></ol>
 		
 		</div>
 		
-		<figure class="highlight"><table><tr><td class="gutter"><pre>1
+		<p>title: OpenGL离屏渲染<br>categories:</p>
+<ul>
+<li>OpenGL</li>
+</ul>
+<h1 id="brief">brief</h1>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -109,19 +117,34 @@ A PBO (Pixel Buffer O">
 </pre></td><td class="code"><pre>A FBO (Framebuffer <span class="built_in">object</span>) <span class="keyword">is</span> a target <span class="keyword">where</span> you can render images other than the <span class="keyword">default</span> frame buffer <span class="keyword">or</span> screen.
 
 A PBO (Pixel Buffer <span class="built_in">Object</span>) allows asynchronous transfers <span class="keyword">of</span> pixel data <span class="keyword">to</span> <span class="keyword">and</span> <span class="keyword">from</span> the device. 
-PBO(���ػ�������): �������غ��豸ͬ������/������
+PBO(像素缓冲对象): 允许像素和设备同步传入/传出，
 
 This can be helpful <span class="keyword">to</span> improve overall performance <span class="keyword">when</span> rendering <span class="keyword">if</span> you have other things that can be done <span class="keyword">while</span> waiting <span class="keyword">for</span> the pixel transfer.
-���ڵȴ�����ת��ʱ��Ҫ������������ʱ��������������������
+当在等待像素转换时，要进行其他处理时，有利于提高整体性能
 </pre></td></tr></table></figure>
 
 <ul>
-<li>GLTStopwatch 1/100����Ⱦ��������<ul>
+<li>GLTStopwatch 1/100秒渲染多少屏？<ul>
 <li>GLTStopwatchReset()</li>
 <li>GLTStopwatchRead()</li>
 </ul>
 </li>
 </ul>
+<h1 id="使用OpenGL绘图到文件">使用OpenGL绘图到文件</h1>
+<p>读取将OpenGL绘图结果函数为<code>glReadPixels</code>, 可以实现将屏幕内容copy到本地内存</p>
+<h2 id="GLX_PixelMap">GLX PixelMap</h2>
+<p>非硬件加速<br>创建一块内存区域给OpenGL, 申请的区域是OpenGL的实际绘图区域</p>
+<h2 id="PBuffer">PBuffer</h2>
+<p>PBuffer使用图形内存而不是XPixelMap<br>据说在新版的OpengGL中已经被逐步废弃</p>
+<h2 id="Framebuffer_Object">Framebuffer Object</h2>
+<p>通过指定Render Buffer Object指定渲染位置，并且可以快速切换渲染位置</p>
+<h2 id="Pixel_Buffer_Object">Pixel Buffer Object</h2>
+<p>主要用于支持异步纹理读写</p>
+<h2 id="比较">比较</h2>
+<p>OpenGL蓝皮书第三版中讲解了Linux下使用GLX PixelMap和PBuffer做离屏渲染的方法，在第五版中删除了这章，<br>据说厂商逐步废弃上述PBuffer方案</p>
+<p>FBO方案被提倡用来做离屏渲染</p>
+<p>PBO方案被提倡用来做异步像素处理</p>
+<p><a href="http://www.opengl.org/discussion_boards/showthread.php/168610-pBuffer-vs-PBO-vs-FBO" target="_blank">http://www.opengl.org/discussion_boards/showthread.php/168610-pBuffer-vs-PBO-vs-FBO</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -142,7 +165,7 @@ This can be helpful <span class="keyword">to</span> improve overall performance 
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2014/08/11/libraries/opengl/render_to_file/" title="">
+ <a href="/2014/08/22/tools/windows_shell/" title="">
   <strong>上一篇：</strong><br/>
   <span>
   (no title)</span>
@@ -167,7 +190,7 @@ This can be helpful <span class="keyword">to</span> improve overall performance 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#brief"><span class="toc-number">1.</span> <span class="toc-text">brief</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用OpenGL绘图到文件"><span class="toc-number">2.</span> <span class="toc-text">使用OpenGL绘图到文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GLX_PixelMap"><span class="toc-number">2.1.</span> <span class="toc-text">GLX PixelMap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PBuffer"><span class="toc-number">2.2.</span> <span class="toc-text">PBuffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Framebuffer_Object"><span class="toc-number">2.3.</span> <span class="toc-text">Framebuffer Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pixel_Buffer_Object"><span class="toc-number">2.4.</span> <span class="toc-text">Pixel Buffer Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#比较"><span class="toc-number">2.5.</span> <span class="toc-text">比较</span></a></li></ol>
  
   </div>
 
@@ -180,29 +203,25 @@ This can be helpful <span class="keyword">to</span> improve overall performance 
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
-			<li><a href="/categories/CPP/" title="CPP">CPP<sup>2</sup></a></li>
-		
-			<li><a href="/categories/Programing/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
-		
 			<li><a href="/categories/Navigate/" title="Navigate">Navigate<sup>1</sup></a></li>
 		
 			<li><a href="/categories/Personal/" title="Personal">Personal<sup>1</sup></a></li>
 		
-			<li><a href="/categories/Programing/" title="Programing">Programing<sup>1</sup></a></li>
-		
-			<li><a href="/categories/Python/" title="Python">Python<sup>2</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
 		
 			<li><a href="/categories/Ruby/" title="Ruby">Ruby<sup>3</sup></a></li>
 		
 			<li><a href="/categories/Technology/" title="Technology">Technology<sup>2</sup></a></li>
 		
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
-		
 			<li><a href="/categories/Trivial/" title="Trivial">Trivial<sup>2</sup></a></li>
 		
 			<li><a href="/categories/Words/" title="Words">Words<sup>1</sup></a></li>
 		
-			<li><a href="/categories/tools/" title="tools">tools<sup>1</sup></a></li>
+			<li><a href="/categories/cpp/" title="cpp">cpp<sup>4</sup></a></li>
+		
+			<li><a href="/categories/cpp/program/" title="program">program<sup>1</sup></a></li>
+		
+			<li><a href="/categories/tools/" title="tools">tools<sup>3</sup></a></li>
 		
 		</ul>
 </div>
@@ -213,13 +232,13 @@ This can be helpful <span class="keyword">to</span> improve overall performance 
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
-		
 			<li><a href="/tags/ruby/" title="ruby">ruby<sup>2</sup></a></li>
 		
 			<li><a href="/tags/Ruby Rails/" title="Ruby Rails">Ruby Rails<sup>1</sup></a></li>
 		
 			<li><a href="/tags/meta-programming/" title="meta-programming">meta-programming<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
 		
 			<li><a href="/tags/cpp/" title="cpp">cpp<sup>1</sup></a></li>
 		
@@ -229,19 +248,19 @@ This can be helpful <span class="keyword">to</span> improve overall performance 
 		
 			<li><a href="/tags/Boost/" title="Boost">Boost<sup>1</sup></a></li>
 		
-			<li><a href="/tags/Restaurant/" title="Restaurant">Restaurant<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
-		
 			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Restaurant/" title="Restaurant">Restaurant<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Words/" title="Words">Words<sup>1</sup></a></li>
 		
 			<li><a href="/tags/web toolkit/" title="web toolkit">web toolkit<sup>1</sup></a></li>
 		
 			<li><a href="/tags/FastCGI/" title="FastCGI">FastCGI<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
 		
 			<li><a href="/tags/WGS84/" title="WGS84">WGS84<sup>1</sup></a></li>
 		

@@ -22,8 +22,9 @@
 11
 cp /etc/samba/smb.conf /etc/samba/smb.conf-original
 vim /etc/samba/smb.conf
-useradd samba // ���������˻�
-passwd samba // �˻���">
+useradd samba // 创建共享账户
+passwd samba // 账户密码
+smbpa">
     
     
     
@@ -100,7 +101,7 @@ passwd samba // �˻���">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#������NT_STATUS_ACCESS_DENIED"><span class="toc-number">1.</span> <span class="toc-text">������NT_STATUS_ACCESS_DENIED</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误：NT_STATUS_ACCESS_DENIED"><span class="toc-number">1.</span> <span class="toc-text">错误：NT_STATUS_ACCESS_DENIED</span></a></li></ol>
 		
 		</div>
 		
@@ -117,15 +118,15 @@ passwd samba // �˻���">
 11
 </pre></td><td class="code"><pre>cp /etc/samba/smb<span class="built_in">.</span>conf /etc/samba/smb<span class="built_in">.</span>conf<span class="attribute">-original</span>
 vim /etc/samba/smb<span class="built_in">.</span>conf
-useradd samba <span class="comment">// ���������˻�</span>
-passwd samba <span class="comment">// �˻�����</span>
-smbpasswd <span class="attribute">-a</span> samba <span class="comment">// samba ����</span>
-service smb reload <span class="subst">/</span> restart <span class="comment">// ����samba����</span>
-service iptables stop <span class="comment">// �رշ���ǽ, Ҳ�����޸�/etc/sysconfig/iptables�򿪶˿ڣ�Ҳ������Linuxͼ�ι�������</span>
-chcon <span class="attribute">-t</span> samba_share_t /share <span class="comment">// ����selinux</span>
+useradd samba <span class="comment">// 创建共享账户</span>
+passwd samba <span class="comment">// 账户密码</span>
+smbpasswd <span class="attribute">-a</span> samba <span class="comment">// samba 密码</span>
+service smb reload <span class="subst">/</span> restart <span class="comment">// 重启samba服务</span>
+service iptables stop <span class="comment">// 关闭防火墙, 也可以修改/etc/sysconfig/iptables打开端口，也可以用Linux图形管理工具</span>
+chcon <span class="attribute">-t</span> samba_share_t /share <span class="comment">// 设置selinux</span>
 chcon <span class="attribute">-t</span> samba_share_t /home/samba
-testparm <span class="comment">// ����</span>
-smbclient <span class="comment">//127.0.0.1/share --user samba //�ڱ��ز�������</span>
+testparm <span class="comment">// 测试</span>
+smbclient <span class="comment">//127.0.0.1/share --user samba //在本地测试连接</span>
 </pre></td></tr></table></figure>
 
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
@@ -144,24 +145,24 @@ smbclient <span class="comment">//127.0.0.1/share --user samba //�ڱ��ز�
 
 
 
-<p><a href="service smb status">��������</a><br><a href="http://callmepeanut.blog.51cto.com/7756998/1304442" target="_blank">������tree connect failed: NT_STATUS_ACCESS_DENI</a></p>
-<h3 id="������NT_STATUS_ACCESS_DENIED">������NT_STATUS_ACCESS_DENIED</h3>
-<p><a href="http://www.it2down.com/it-access/412718.htm" target="_blank">������NT_STATUS_ACCESS_DENIED listing - Access</a></p>
+<p><a href="service smb status">如何配置</a><br><a href="http://callmepeanut.blog.51cto.com/7756998/1304442" target="_blank">错误：tree connect failed: NT_STATUS_ACCESS_DENI</a></p>
+<h3 id="错误：NT_STATUS_ACCESS_DENIED">错误：NT_STATUS_ACCESS_DENIED</h3>
+<p><a href="http://www.it2down.com/it-access/412718.htm" target="_blank">错误：NT_STATUS_ACCESS_DENIED listing - Access</a></p>
 <blockquote>
-<p>NT_STATUS_ACCESS_DENIED listing *<br>��CENTOS�����˸�SAMBA��WINDOW�����ļ���</p>
+<p>NT_STATUS_ACCESS_DENIED listing *<br>在CENTOS上配了个SAMBA与WINDOW共享文件。</p>
 </blockquote>
-<p>һ���ʹ���Ŀ¼�͡�NT_STATUS_ACCESS_DENIED listing *�� �����˺þã�������SELINUX�赲�ˡ�</p>
+<p>一访问共享目录就”NT_STATUS_ACCESS_DENIED listing *“ ，找了好久，发现是SELINUX阻挡了。</p>
 <p>[root@linux tmp]# smbclient //127.0.0.1/sambar -U sambar%sambar<br>Domain=[WORKGROUP] OS=[Unix] Server=[Samba 3.5.10-114.el6]<br>smb: &gt; ls<br>NT_STATUS_ACCESS_DENIED listing *</p>
 <pre><code>            <span class="number">52265</span> blocks <span class="keyword">of</span> size <span class="number">1048576</span>. <span class="number">48406</span> blocks available
-</code></pre><p>���򷽷�һ��</p>
-<p>�ر�SELIUNX</p>
-<p>[root@linux /]# getenforce   ;�鿴��ǰ״̬<br>Enforcing </p>
+</code></pre><p>解决方法一：</p>
+<p>关闭SELIUNX</p>
+<p>[root@linux /]# getenforce   ;查看当前状态<br>Enforcing </p>
 <p>[root@linux /]# setenforce 0;</p>
-<p>SELINUX����״̬��ʾ��</p>
-<p>enforcing��ǿ��ģʽ������ SELinux �����У����Ѿ���ȷ�Ŀ�ʼ���� domain/type �ˣ�<br>permissive������ģʽ������ SELinux �����У����������о�����Ϣ������ʵ������ domain/type �Ĵ�ȡ������ģʽ����������Ϊ SELinux �� debug ֮�ã�<br>disabled���رգ�SELinux ��û��ʵ�����С�</p>
-<p>���򷽷�����</p>
-<p>����selinux�Ĳ���</p>
-<p>chcon -t samba_share_t  ����Ŀ¼(/var/www/html)</p>
+<p>SELINUX几种状态表示：</p>
+<p>enforcing：强制模式，代表 SELinux 运行中，且已经正确的开始限制 domain/type 了；<br>permissive：宽容模式：代表 SELinux 运行中，不过仅会有警告信息并不会实际限制 domain/type 的存取。这种模式可以运来作为 SELinux 的 debug 之用；<br>disabled：关闭，SELinux 并没有实际运行。</p>
+<p>解决方法二：</p>
+<p>更改selinux的策略</p>
+<p>chcon -t samba_share_t  共享目录(/var/www/html)</p>
 <p>chcon -t samba_share_t /share /workspace</p>
   
 	</div>
@@ -208,7 +209,7 @@ smbclient <span class="comment">//127.0.0.1/share --user samba //�ڱ��ز�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#������NT_STATUS_ACCESS_DENIED"><span class="toc-number">1.</span> <span class="toc-text">������NT_STATUS_ACCESS_DENIED</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#错误：NT_STATUS_ACCESS_DENIED"><span class="toc-number">1.</span> <span class="toc-text">错误：NT_STATUS_ACCESS_DENIED</span></a></li></ol>
  
   </div>
 
@@ -221,29 +222,25 @@ smbclient <span class="comment">//127.0.0.1/share --user samba //�ڱ��ز�
 	<p class="asidetitle">Categories</p>
 		<ul>
 		
-			<li><a href="/categories/CPP/" title="CPP">CPP<sup>2</sup></a></li>
-		
-			<li><a href="/categories/Programing/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
-		
 			<li><a href="/categories/Navigate/" title="Navigate">Navigate<sup>1</sup></a></li>
 		
 			<li><a href="/categories/Personal/" title="Personal">Personal<sup>1</sup></a></li>
 		
-			<li><a href="/categories/Programing/" title="Programing">Programing<sup>1</sup></a></li>
-		
-			<li><a href="/categories/Python/" title="Python">Python<sup>2</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>1</sup></a></li>
 		
 			<li><a href="/categories/Ruby/" title="Ruby">Ruby<sup>3</sup></a></li>
 		
 			<li><a href="/categories/Technology/" title="Technology">Technology<sup>2</sup></a></li>
 		
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
-		
 			<li><a href="/categories/Trivial/" title="Trivial">Trivial<sup>2</sup></a></li>
 		
 			<li><a href="/categories/Words/" title="Words">Words<sup>1</sup></a></li>
 		
-			<li><a href="/categories/tools/" title="tools">tools<sup>1</sup></a></li>
+			<li><a href="/categories/cpp/" title="cpp">cpp<sup>4</sup></a></li>
+		
+			<li><a href="/categories/cpp/program/" title="program">program<sup>1</sup></a></li>
+		
+			<li><a href="/categories/tools/" title="tools">tools<sup>3</sup></a></li>
 		
 		</ul>
 </div>
@@ -254,13 +251,13 @@ smbclient <span class="comment">//127.0.0.1/share --user samba //�ڱ��ز�
 	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
-		
 			<li><a href="/tags/ruby/" title="ruby">ruby<sup>2</sup></a></li>
 		
 			<li><a href="/tags/Ruby Rails/" title="Ruby Rails">Ruby Rails<sup>1</sup></a></li>
 		
 			<li><a href="/tags/meta-programming/" title="meta-programming">meta-programming<sup>1</sup></a></li>
+		
+			<li><a href="/tags/python/" title="python">python<sup>1</sup></a></li>
 		
 			<li><a href="/tags/cpp/" title="cpp">cpp<sup>1</sup></a></li>
 		
@@ -270,19 +267,19 @@ smbclient <span class="comment">//127.0.0.1/share --user samba //�ڱ��ز�
 		
 			<li><a href="/tags/Boost/" title="Boost">Boost<sup>1</sup></a></li>
 		
-			<li><a href="/tags/Restaurant/" title="Restaurant">Restaurant<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
-		
 			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Restaurant/" title="Restaurant">Restaurant<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Words/" title="Words">Words<sup>1</sup></a></li>
 		
 			<li><a href="/tags/web toolkit/" title="web toolkit">web toolkit<sup>1</sup></a></li>
 		
 			<li><a href="/tags/FastCGI/" title="FastCGI">FastCGI<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
 		
 			<li><a href="/tags/WGS84/" title="WGS84">WGS84<sup>1</sup></a></li>
 		
