@@ -1,239 +1,435 @@
-<!DOCTYPE HTML>
-<html>
+
+ <!DOCTYPE HTML>
+<html >
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   
-  <title>Blogs</title>
-  <meta name="author" content="Siryang">
-  
-  <meta name="description" content="Layer—xml    Linear Layout    Relative Layout
+    <title>Blogs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Siryang">
+    
+    <meta name="description" content="Android Design
+Layer—xml    Linear Layout    Relative Layout
 TextView
-Android��������Ϊxml��ʽ��������resĿ¼��
-android:layout_width // ��������--match_parent��������par">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  
-  <meta property="og:site_name" content="Blogs"/>
-
-  
-    <meta property="og:image" content="undefined"/>
-  
-
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Blogs" type="application/atom+xml">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
-<link rel="stylesheet" href="/css/style.css" type="text/css">
-  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-368771XX-X']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-
+Android界面设计为xml格式，存放在res目录下
+android:layout_width // 窗体宽度--match_parent代表填满parent">
+    
+    
+    
+    
+    <link rel="alternative" href="/atom.xml" title="Blogs" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
-<body>
-  <header id="header" class='normal_mode'>
-    <nav id="main-nav">
-  <ul class='container'>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-  </header>
-  <div id="content" class="container">
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
+  <body>
     <header>
-      
-      <time datetime="2014-09-23T02:04:30.000Z"><a href="/2014/09/23/programming/android/android_design/">Tue, Sep 23 2014, 10:04:30 am</a></time>
-
-  
-    <h1 class="title"></h1>
-  
-
-
-
-<div class="clear"></div>
-      
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Blogs" title="Blogs"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Blogs">Blogs</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:siryang.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
     </header>
-    <div class="entry">
-      
-        <p>Layer—xml<br>    Linear Layout<br>    Relative Layout</p>
-<pre><code>TextView
-</code></pre><p>Android��������Ϊxml��ʽ��������resĿ¼��</p>
-<pre><code>android:layout_width <span class="comment">// ��������--match_parent��������parent</span>
-android:layout_height <span class="comment">// �����߶�--match_parent��������parent</span>
-
-android:<span class="keyword">id</span> <span class="comment">// ����Ψһ��ʶ</span>
-</code></pre><p>values/string.xml<br>    ���ַ�����name=”key”&gt;value&lt;��ʽд���ŵ��У��ڴ������Ƶ�xml��ʹ��@string:key����</p>
-<p>Context:<br>    Context���ǳ����࣬�ṩ��һ��ͨ�õ�POI���ڷ���Ӧ�ó���ȫ����Ϣ��һЩӦ�ü������ࣨAndroid�ڲ��ࣩ���̳���Context<br>    ��Contextʵ������ = Service���� + Activity���� + 1��Application��Ӧ��Contextʵ����<br>Activity:<br>    һ��Activity��Ӧһ��Ӧ�ó������棬������������Activity����ת����<br>    ����������startActivity() / startActivityForResult()<br>    �ṩonCreate(), onStart()�ӿڣ���Activity����ʱ���ص�</p>
-<p>Service:<br>    Ӧ�õĺ�̨�������������ڲ�ȡ����ĳ��Activity��<br>    ����������startService() / bindService()</p>
-<p>Intent:<br>    ������Ļ�����л������󷽷��֡����󣨣����͡����ݣ�URL��ʾ����������<br>    IntentFilter:<br>        ��������һ��Activity/IntentReceiver�ܹ�������Щintent<br>        ��Ҫ��AndroidMainifest.xml�ж�����ôȥ����View������URL����startActivity()����ʱ����ȥ������Ӧ��xml����������Ӧ������<br>    IntentReceiver:<br>        InetnetReceiver���Զ�ϵͳ�¼�����Ӧ�����¼�����ʱ����NotificationManager֪ͨ�û�<br>        ��AndroidMainifest.xml��ע�� ��Ҳ������Context.registerReceiver()ע��<br>        ʹ��Context.broadcastIntent()���Խ��¼��㲥������������<br>Content Provider��<br>    ����AndroidӦ��֮�䴫�����ݣ���ĳӦ�ö�ͨѶ¼��΢������</p>
-<p>Android�ṩ��API<br>android.app ���ṩ�߲��ĳ���ģ�͡��ṩ���������л���<br>android.content ���������ֵĶ��豸�ϵ����ݽ��з��ʺͷ�������<br>android.database ��ͨ�������ṩ�������Ͳ������ݿ�<br>android.graphics ���ײ���ͼ�ο⣬������������ɫ���ˣ��㣬���Σ����Խ�����ֱ�ӻ��Ƶ���Ļ��.<br>android.location ����λ�����ط�������<br>android.media ���ṩһЩ������������Ƶ����Ƶ��ý���ӿ�<br>android.net ���ṩ�����������ʵ��࣬����ͨ���� java.net.* �ӿ�<br>android.os ���ṩ��ϵͳ��������Ϣ���䡢IPC ����<br>android.opengl ���ṩ OpenGL �Ĺ���<br>android.provider ���ṩ������ Android �������ṩ��<br>android.telephony ���ṩ�벦���绰���ص� API ����<br>android.view ���ṩ�������û������ӿڿ���<br>android.util ���漰�����Եķ���������ʱ�����ڵĲ���<br>android.webkit ��Ĭ�������������ӿ�<br>android.widget ���������� UI Ԫ�أ��󲿷��ǿɼ��ģ���Ӧ�ó�������Ļ��ʹ��</p>
-<p>JVM��Dalvik������</p>
-<p>.java Դ�ļ�<br>.class Ŀ���ļ�(�޷���Android Dalvik��ִ��,��Ҫ���ӳ�dex�ļ�)<br>.dex Android�ϵĿ�ִ���ļ�<br>.apk Android�ϵİ�װ�ļ���������AndroidMainifest.xml��dex����Դ�ļ��������ļ�</p>
-
-      
-    </div>
-    <footer>
-      
-          
-<!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <span class="jiathis_txt">分享到：</span>
-  <a class="jiathis_button_weixin">微信</a>
-  <a class="jiathis_button_tsina">新浪微博</a>
-  <a class="jiathis_button_renren">人人网</a>
-  <a class="jiathis_button_qzone">QQ空间</a>
-  <a class="jiathis_button_douban">豆瓣</a>
-  <a class="jiathis_button_pocket">Pocket</a>
-  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-          <div class="clearfix"></div>
-          <nav id="pagination">
-  
-    <a href="/2014/09/28/web/create_a_webset/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
-  
-  
-    <a href="/2014/09/22/web/wordpress/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
-  
-  <div class="clearfix"></div>
-</nav>
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-
-  
-      <!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="/2014/09/23/programming/android/android_design/"></div>
-<!-- Duoshuo Comment END -->
-  
-</section>
-
-
-
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div>
-  
-  &copy; 2014 Siryang
-  
-</div>
-Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
-
-<div class="clearfix"></div></footer>
-  
-<script type="text/javascript" src="/js/jquery.imagesloaded.min.js"></script>
-<script type="text/javascript" src="/js/gallery.js"></script>
-<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
-
-
-
-    <script type="text/javascript">
-        (function(){
-
-            $(window).scroll(function(){
-
-                var scrollTop = $(window).scrollTop();
-                if ( scrollTop >200 ){
-                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
-                } else{
-                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
-                }
-
-            });
-
-        })();
-    </script>
-
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript">
-  (function($){
-    $('.fancybox').fancybox({
-      'titlePosition': 'inside'
-    });
-  })(jQuery);
-  </script>
-
-
-
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-    <script type="text/javascript">
-      var duoshuoQuery = {short_name:"your_id"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = 'http://static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0] 
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
+      <a href="/2014/09/23/programming/android/android_design/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://siryang.github.io/about" title="Siryang" target="_blank" itemprop="author">Siryang</a>
+		
+  <p class="article-time">
+    <time datetime="2014-09-23T02:04:30.000Z" itemprop="datePublished">发表于Sep 23 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android_Design"><span class="toc-number">1.</span> <span class="toc-text">Android Design</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="Android_Design">Android Design</h1>
+<p>Layer—xml<br>    Linear Layout<br>    Relative Layout</p>
+<pre><code>TextView
+</code></pre><p>Android界面设计为xml格式，存放在res目录下</p>
+<pre><code>android:layout_width <span class="comment">// 窗体宽度--match_parent代表填满parent</span>
+android:layout_height <span class="comment">// 窗体高度--match_parent代表填满parent</span>
+
+android:<span class="keyword">id</span> <span class="comment">// 窗体唯一标识</span>
+</code></pre><p>values/string.xml<br>    将字符串以name=”key”&gt;value&lt;格式写入放到中，在窗体设计的xml中使用@string:key访问</p>
+<p>Context:<br>    Context类是抽象类，提供了一组通用的POI用于访问应用程序全局信息。一些应用级别的类（Android内部类）都继承自Context<br>    总Context实例个数 = Service个数 + Activity个数 + 1（Application对应的Context实例）<br>Activity:<br>    一个Activity对应一个应用程序界面，可以启动其它Activity以跳转界面<br>    创建方法：startActivity() / startActivityForResult()<br>    提供onCreate(), onStart()接口，当Activity创建时，回调</p>
+<p>Service:<br>    应用的后台服务，生命周期不取决于某个Activity。<br>    创建方法：startService() / bindService()</p>
+<p>Intent:<br>    用于屏幕管理切换，操作方法分“动作（）”和“数据（URL表示）”两部分<br>    IntentFilter:<br>        用于描述一个Activity/IntentReceiver能够操作哪些intent<br>        需要在AndroidMainifest.xml中定义怎么去处理View动作和URL，当startActivity()调用时，会去解析对应的xml，并触发相应动作。<br>    IntentReceiver:<br>        InetnetReceiver可以对系统事件的响应，当事件发生时会用NotificationManager通知用户<br>        在AndroidMainifest.xml中注册 ，也可以用Context.registerReceiver()注册<br>        使用Context.broadcastIntent()可以将事件广播给其它程序。<br>Content Provider：<br>    用于Android应用之间传递数据，如某应用读通讯录和微博数据</p>
+<p>Android提供的API<br>android.app ：提供高层的程序模型、提供基本的运行环境<br>android.content ：包含各种的对设备上的数据进行访问和发布的类<br>android.database ：通过内容提供者浏览和操作数据库<br>android.graphics ：底层的图形库，包含画布，颜色过滤，点，矩形，可以将他们直接绘制到屏幕上.<br>android.location ：定位和相关服务的类<br>android.media ：提供一些类管理多种音频、视频的媒体接口<br>android.net ：提供帮助网络访问的类，超过通常的 java.net.* 接口<br>android.os ：提供了系统服务、消息传输、IPC 机制<br>android.opengl ：提供 OpenGL 的工具<br>android.provider ：提供类访问 Android 的内容提供者<br>android.telephony ：提供与拨打电话相关的 API 交互<br>android.view ：提供基础的用户界面接口框架<br>android.util ：涉及工具性的方法，例如时间日期的操作<br>android.webkit ：默认浏览器操作接口<br>android.widget ：包含各种 UI 元素（大部分是可见的）在应用程序的屏幕中使用</p>
+<p>JVM和Dalvik虚拟机</p>
+<p>.java 源文件<br>.class 目标文件(无法在Android Dalvik上执行,需要链接成dex文件)<br>.dex Android上的可执行文件<br>.apk Android上的安装文件，打包了AndroidMainifest.xml、dex、资源文件和其他文件</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
 
 
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://siryang.github.io/2014/09/23/programming/android/android_design/" data-title="Blogs" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2014/09/28/web/create_a_webset/" title="">
+  <strong>上一篇：</strong><br/>
+  <span>
+  (no title)</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2014/09/22/web/wordpress/"  title="">
+ <strong>下一篇：</strong><br/> 
+ <span>(no title)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android_Design"><span class="toc-number">1.</span> <span class="toc-text">Android Design</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+			<li><a href="/categories/CPP/" title="CPP">CPP<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Programing/Hexo/" title="Hexo">Hexo<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Navigate/" title="Navigate">Navigate<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Personal/" title="Personal">Personal<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Programing/" title="Programing">Programing<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Python/" title="Python">Python<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Ruby/" title="Ruby">Ruby<sup>3</sup></a></li>
+		
+			<li><a href="/categories/Technology/" title="Technology">Technology<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Trivial/" title="Trivial">Trivial<sup>2</sup></a></li>
+		
+			<li><a href="/categories/Words/" title="Words">Words<sup>1</sup></a></li>
+		
+			<li><a href="/categories/tools/" title="tools">tools<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/python/" title="python">python<sup>2</sup></a></li>
+		
+			<li><a href="/tags/ruby/" title="ruby">ruby<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Ruby Rails/" title="Ruby Rails">Ruby Rails<sup>1</sup></a></li>
+		
+			<li><a href="/tags/meta-programming/" title="meta-programming">meta-programming<sup>1</sup></a></li>
+		
+			<li><a href="/tags/cpp/" title="cpp">cpp<sup>1</sup></a></li>
+		
+			<li><a href="/tags/template/" title="template">template<sup>1</sup></a></li>
+		
+			<li><a href="/tags/reading/" title="reading">reading<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Boost/" title="Boost">Boost<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Restaurant/" title="Restaurant">Restaurant<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Mysql/" title="Mysql">Mysql<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hexo/" title="hexo">hexo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Words/" title="Words">Words<sup>1</sup></a></li>
+		
+			<li><a href="/tags/web toolkit/" title="web toolkit">web toolkit<sup>1</sup></a></li>
+		
+			<li><a href="/tags/FastCGI/" title="FastCGI">FastCGI<sup>1</sup></a></li>
+		
+			<li><a href="/tags/WGS84/" title="WGS84">WGS84<sup>1</sup></a></li>
+		
+			<li><a href="/tags/C/" title="C">C<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+      <li><a href="http://yangjian.me" target="_blank" title="YangJian">Alimon's Blog</a></li>
+      <li><a href="http://zipperary.com/" target="_blank" title="zippera">Zippera's Blog</a></li>
+      <li><a href="http://brotherb.info/" target="_blank" title="brotherb">Spike's Blog</a></li>
+      <li><a href="http://hijiangtao.github.io/" target="_blank" title="JiangTao">Data.Blog</a></li>
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		
+		<div class="author"></div>
+		
+	</div>
+	
+	
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2014 
+		
+		<a href="http://siryang.github.io/about" target="_blank" title="Siryang">Siryang</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
 
 <script type="text/javascript">
-  
-  $(function(){
-
-    $('.title').hover(
-      function() {      
-        $(this).stop().animate(
-          {'marginLeft': '10px'}, 200
-        );   
-      }, 
-      function() {       
-        $(this).stop().animate({'marginLeft': '0px'}, 200);      
-      
-    });   
-
-  });
-
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
 </script>
 
 
-</body>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
 </html>
