@@ -5,55 +5,52 @@
   
   <title>mysql | Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="启动
-mysql -u @user -p 
-命令
-select version();select user();
-show databases;
-use @table_name
-用户权限
+  <meta name="description" content="安装MYSQL
 1
 2
-show grants for @user_name
-grant all privileges on route_c.* to 'comment'@'%';
-
-
-经验">
+3
+4
+5
+6
+7
+rpm -e --nodeps mysql # remove old
+yum install -y mysql-server mysql mysql-deve
+service mysqld start # mysqld not mysql
+chkconfig mysqld on # check is mysqld started
+netstat -nat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql">
 <meta property="og:url" content="http://siryang.github.io/2014/06/24/tools/mysql/">
 <meta property="og:image">
 <meta property="og:site_name" content="Blogs">
-<meta property="og:description" content="启动
-mysql -u @user -p 
-命令
-select version();select user();
-show databases;
-use @table_name
-用户权限
+<meta property="og:description" content="安装MYSQL
 1
 2
-show grants for @user_name
-grant all privileges on route_c.* to 'comment'@'%';
-
-
-经验">
+3
+4
+5
+6
+7
+rpm -e --nodeps mysql # remove old
+yum install -y mysql-server mysql mysql-deve
+service mysqld start # mysqld not mysql
+chkconfig mysqld on # check is mysqld started
+netstat -nat">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
-<meta name="twitter:description" content="启动
-mysql -u @user -p 
-命令
-select version();select user();
-show databases;
-use @table_name
-用户权限
+<meta name="twitter:description" content="安装MYSQL
 1
 2
-show grants for @user_name
-grant all privileges on route_c.* to 'comment'@'%';
-
-
-经验">
+3
+4
+5
+6
+7
+rpm -e --nodeps mysql # remove old
+yum install -y mysql-server mysql mysql-deve
+service mysqld start # mysqld not mysql
+chkconfig mysqld on # check is mysqld started
+netstat -nat">
   
     <link rel="alternative" href="/atom.xml" title="Blogs" type="application/atom+xml">
   
@@ -121,25 +118,46 @@ grant all privileges on route_c.* to 'comment'@'%';
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="启动">启动</h2>
-<p>mysql -u @user -p </p>
-<h2 id="命令">命令</h2>
-<p>select version();<br>select user();</p>
-<p>show databases;</p>
-<p>use @table_name</p>
-<h3 id="用户权限">用户权限</h3>
-<figure class="highlight"><table><tr><td class="gutter"><pre>1
+        <h2 id="安装MYSQL">安装MYSQL</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre><span class="operator"><span class="keyword">show</span> grants <span class="keyword">for</span> @user_name
-<span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> route_c.* <span class="keyword">to</span> <span class="string">'comment'</span>@<span class="string">'%'</span>;</span>
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>rpm -e <span class="comment">--nodeps mysql # remove old</span>
+yum install -y mysql-server mysql mysql-deve
+service mysqld <span class="operator"><span class="keyword">start</span> # mysqld <span class="keyword">not</span> mysql
+chkconfig mysqld <span class="keyword">on</span> # <span class="keyword">check</span> <span class="keyword">is</span> mysqld started
+netstat -nat | grep <span class="number">3306</span> # <span class="keyword">check</span> <span class="number">3306</span>
+vim /etc/sysconfig/iptables # firewall, <span class="keyword">add</span> accept rule <span class="keyword">to</span> <span class="number">3306</span>
+service iptables restart</span>
 </pre></td></tr></table></figure>
 
+
+<h2 id="启动">启动</h2>
+<p>mysql -u @user -p </p>
+<p>CREATE USER ‘jeffrey’@’localhost’ IDENTIFIED BY ‘mypass’;<br>CREATE USER ‘jeffrey’@’%’ IDENTIFIED BY ‘mypass’;</p>
+<h2 id="命令">命令</h2>
+<p>select version();<br>select user();</p>
+<p>show databases;<br>use @database name;</p>
+<p>show tables;<br>use @table_name</p>
+<p>show variables;<br>show variables like “%time%”;<br>set wait_timeout=2;</p>
+<h3 id="用户权限">用户权限</h3>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="operator"><span class="keyword">show</span> grants <span class="keyword">for</span> @user_name
+<span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'comment'</span>@<span class="string">'%'</span> IDENTIFIED <span class="keyword">BY</span> <span class="string">"comment"</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span> 
+REVOKE <span class="operator"><span class="keyword">INSERT</span> <span class="keyword">ON</span> *.* <span class="keyword">FROM</span> <span class="string">'comment'</span>@<span class="string">'%'</span>;</span>
+</pre></td></tr></table></figure><br>mysql —host=10.10.23.74 —user=comment —password=comment</p>
 <h3 id="经验">经验</h3>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://siryang.github.io/2014/06/24/tools/mysql/" data-id="3mzpbi94orva0brq" class="article-share-link">Share</a>
+      <a data-url="http://siryang.github.io/2014/06/24/tools/mysql/" data-id="k8cgpdon3pjomzt9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/">Mysql</a></li></ul>
@@ -205,7 +223,7 @@ grant all privileges on route_c.* to 'comment'@'%';
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">June 2014</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05">May 2014</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10">October 2014</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09">September 2014</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08">August 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07">July 2014</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06">June 2014</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05">May 2014</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
@@ -217,23 +235,23 @@ grant all privileges on route_c.* to 'comment'@'%';
       <ul>
         
           <li>
-            <a href="/2014/08/01/trivial/Restaurant/">(no title)</a>
+            <a href="/2014/10/15/tools/gcc/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2014/07/30/programming/android/develop_tools/">(no title)</a>
+            <a href="/2014/10/09/tools/socket/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2014/07/30/tools/eclipse/">(no title)</a>
+            <a href="/2014/09/28/web/create_a_webset/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2014/07/15/libraries/Anti-Grain Geometry/">(no title)</a>
+            <a href="/2014/09/23/programming/android/android_design/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2014/07/14/tools/sqlite3/">(no title)</a>
+            <a href="/2014/09/22/web/wordpress/">(no title)</a>
           </li>
         
       </ul>
